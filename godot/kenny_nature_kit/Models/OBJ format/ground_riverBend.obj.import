@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ch355qertu6dm"
+path="res://.godot/imported/ground_riverBend.obj-b0c1f9ff26e8ffa3a8994c0b72f99c1b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ground_riverBend.obj-b0c1f9ff26e8ffa3a8994c0b72f99c1b.mesh"]
+
+source_file="res://kenny_nature_kit/Models/OBJ format/ground_riverBend.obj"
+dest_files=["res://.godot/imported/ground_riverBend.obj-b0c1f9ff26e8ffa3a8994c0b72f99c1b.mesh", "res://.godot/imported/ground_riverBend.obj-b0c1f9ff26e8ffa3a8994c0b72f99c1b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
