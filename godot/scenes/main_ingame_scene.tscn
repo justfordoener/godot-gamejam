@@ -1,22 +1,63 @@
-[gd_scene load_steps=10 format=3 uid="uid://xnua2qbaqep1"]
+[gd_scene load_steps=19 format=3 uid="uid://xnua2qbaqep1"]
 
-[ext_resource type="Script" path="res://scenes/main_ingame_scene.gd" id="1_c2eda"]
+[ext_resource type="Script" path="res://scripts/main_ingame_scene.gd" id="1_c2eda"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="4_1qrm3"]
-[ext_resource type="MeshLibrary" uid="uid://cnksqtc4skhaq" path="res://assets/test_lib_16.tres" id="4_118e4"]
-[ext_resource type="Script" path="res://scenes/pathing_manager.gd" id="5_8tih4"]
-[ext_resource type="PackedScene" uid="uid://ns0yt361wmq7" path="res://assets/npc.tscn" id="5_le78e"]
+[ext_resource type="MeshLibrary" uid="uid://kkoav74j57kl" path="res://assets/lib_01.tres" id="4_pwhs1"]
+[ext_resource type="Script" path="res://scripts/pathing_manager.gd" id="5_8tih4"]
+[ext_resource type="PackedScene" uid="uid://ns0yt361wmq7" path="res://scenes/npc.tscn" id="5_le78e"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="5_unnr3"]
-[ext_resource type="PackedScene" uid="uid://bjrp7t2it12gk" path="res://assets/stone.tscn" id="6_o8pcn"]
+[ext_resource type="PackedScene" uid="uid://bjrp7t2it12gk" path="res://scenes/stone.tscn" id="6_o8pcn"]
+[ext_resource type="PackedScene" uid="uid://dgslnwfnfs40m" path="res://scenes/snowman_bazooka.tscn" id="8_3yub1"]
+[ext_resource type="PackedScene" uid="uid://buihm75eyst5r" path="res://scenes/snowman_bat.tscn" id="9_px7yu"]
+[ext_resource type="PackedScene" uid="uid://drj1mbchaoppv" path="res://scenes/snowman_maze.tscn" id="10_pkafi"]
 
 [sub_resource type="Curve3D" id="Curve3D_5rkdf"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.31197, 0, 1.60818, 0, 0, 0, 0, 0, 0, 0.261367, 0, 1.62526, 0, 0, 0, 0, 0, 0, -0.451512, 0, 1.63685, 0, 0, 0, 0, 0, 0, -0.447515, 0, 2.42033, 0, 0, 0, 0, 0, 0, -0.444144, 0, 3.08095, 0, 0, 0, 0, 0, 0, -0.440596, 0, 3.77637, 0, 0, 0, 0, 0, 0, -0.437175, 0, 4.44696, 0, 0, 0, 0, 0, 0, 0.549618, -5.96046e-08, 4.45777, 0, 0, 0, 0, 0, 0, 1.48685, 0, 4.46803, 0, 0, 0, 0, 0, 0, 2.49404, 0, 4.47905, 0, 0, 0, 0, 0, 0, 3.49124, 0, 4.48997, 0, 0, 0, 0, 0, 0, 4.54661, 0, 4.50516, 0, 0, 0, 0, 0, 0, 5.45281, 0, 4.5182, 0, 0, 0, 0, 0, 0, 6.54532, 0, 4.53392, 0, 0, 0, 0, 0, 0, 7.477, 0, 4.54732),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 4.35423, 2.07475, 0.444046, 0, 0, 0, 0, 0, 0, 4.5756, 2.09146, 0.482102, 0, 0, 0, 0, 0, 0, 5.19343, 0.974891, 0.538526, 0, 0, 0, 0, 0, 0, 7.01244, 0.974914, 0.51824, 0, 0, 0, 0, 0, 0, 7.52646, 0.974914, 0.844199, 0, 0, 0, 0, 0, 0, 7.43181, 0.974914, 3.67238, 0, 0, 0, 0, 0, 0, 7.74663, 0.974914, 4.681),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 15
+point_count = 7
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sofnw"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_umuhu"]
+radius = 2.0
+
+[sub_resource type="Curve3D" id="Curve3D_khyc2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.69594, -0.486379, 0.626268, 0, 0, 0, 0, 0, 0, 1.92059, -0.469054, 0.639844, 0, 0, 0, 0, 0, 0, 1.0529, 0.648806, 0.58346, 0, 0, 0, 0, 0, 0, 0.604385, -0.472157, 0.680645, 0, 0, 0, 0, 0, 0, -0.523936, -0.49723, 0.680645, 0, 0, 0, 0, 0, 0, -0.812284, -0.49723, 1.14451, 0, 0, 0, 0, 0, 0, -0.824821, -0.497287, 3.10024, 0, 0, 0, 0, 0, 0, -0.498862, -0.497287, 3.60172, 0, 0, 0, 0, 0, 0, 2.86103, -0.497287, 3.60172, 0, 0, 0, 0, 0, 0, 3.19268, -0.497287, 3.8864, 0, 0, 0, 0, 0, 0, 3.31805, -0.497287, 4.47564, 0, 0, 0, 0, 0, 0, 3.71923, -0.497287, 4.65115, 0, 0, 0, 0, 0, 0, 6.79077, -0.497287, 4.50071),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
+
+[sub_resource type="Curve3D" id="Curve3D_mwgtk"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.61832, 6.07371e-05, 0.565635, 0, 0, 0, 0, 0, 0, 3.22009, 6.07371e-05, 0.603246, 0, 0, 0, 0, 0, 0, 3.57112, 6.07371e-05, 1.11726, 0, 0, 0, 0, 0, 0, 3.67142, 6.07371e-05, 1.86947, 0, 0, 0, 0, 0, 0, 3.74224, 6.07371e-05, 3.14824, 0, 0, 0, 0, 0, 0, 3.99738, 6.07371e-05, 3.48673, 0, 0, 0, 0, 0, 0, 4.48631, 6.07371e-05, 4.02582, 0, 0, 0, 0, 0, 0, 4.73705, 6.07371e-05, 4.50222, 0, 0, 0, 0, 0, 0, 5.47673, 6.07371e-05, 4.50222, 0, 0, 0, 0, 0, 0, 6.417, 6.07371e-05, 4.51476, 0, 0, 0, 0, 0, 0, 7.08145, 6.07371e-05, 5.05384),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
+[sub_resource type="Curve3D" id="Curve3D_5djge"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.4639, 3.08752e-05, 5.51269, 0, 0, 0, 0, 0, 0, 3.63056, 3.08752e-05, 5.57538, 0, 0, 0, 0, 0, 0, 3.5052, 3.08752e-05, 4.52228, 0, 0, 0, 0, 0, 0, -0.41885, 3.08752e-05, 4.39691, 0, 0, 0, 0, 0, 0, -0.481535, 3.08752e-05, 1.70148, 0, 0, 0, 0, 0, 0, 0.446195, 3.08752e-05, 1.51342),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_563ye"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="Curve3D" id="Curve3D_ucp1t"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.43883, 3.03984e-05, 4.48467, 0, 0, 0, 0, 0, 0, 4.42039, 3.03984e-05, 4.57243, 0, 0, 0, 0, 0, 0, 4.50815, 3.03984e-05, 3.77006, 0, 0, 0, 0, 0, 0, 4.24487, 3.03984e-05, 3.41903),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_y178u"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.42425, 0, 4.48641, 0, 0, 0, 0, 0, 0, 7.33381, 0, 0.62352, 0, 0, 0, 0, 0, 0, 5.40883, 0, 0.494327),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_c2eda")
@@ -37,10 +78,10 @@ transform = Transform3D(0.999998, 0.00142632, -0.00109625, 0, 0.609392, 0.792869
 far = 4006.95
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("4_118e4")
+mesh_library = ExtResource("4_pwhs1")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(2, 1, 3, 3, 2, 3, 3, 1, 3, 4, 1, 3, 4, 2, 3, 2, 2, 3, 3, 3, 1, 6, 0, 1048577, 7, 0, 1048580, 6, 4, 1048577, 5, 4, 1048577, 4, 4, 1048577, 3, 4, 2, 2, 4, 1441793, 1, 4, 1441793, 0, 4, 1441793, 0, 1, 1048577, 65535, 1, 655364, 1, 0, 3, 1, 1, 3, 1, 2, 3, 2, 65535, 3, 3, 65535, 655363, 4, 65535, 655363, 5, 0, 1441793, 4, 0, 3, 3, 0, 3, 2, 0, 3, 1, 65535, 3, 65535, 2, 655361, 65535, 3, 655361, 65535, 4, 1441796, 7, 1, 655361, 7, 2, 655361, 7, 3, 655361, 7, 4, 655360)
+"cells": PackedInt32Array(2, 1, 3, 3, 1, 3, 4, 1, 3, 4, 2, 3, 2, 2, 3, 6, 0, 1048577, 7, 0, 1048580, 6, 4, 655363, 5, 4, 1048577, 4, 4, 2, 3, 4, 655362, 2, 4, 1441793, 1, 4, 1441793, 0, 4, 1441793, 0, 1, 1048577, 65535, 1, 655364, 1, 0, 3, 1, 1, 1376261, 1, 2, 3, 2, 65535, 3, 3, 65535, 655363, 4, 65535, 655363, 5, 0, 1441793, 4, 0, 1114117, 3, 0, 3, 2, 0, 3, 1, 65535, 3, 65535, 2, 655361, 65535, 3, 655361, 65535, 4, 1441796, 7, 1, 655361, 7, 2, 655361, 7, 3, 655361, 7, 4, 655363, 3, 2, 3, 3, 3, 1441796, 7, 5, 655363, 8, 4, 655363, 8, 5, 655363, 6, 5, 655363, 5, 5, 1048577, 4, 5, 1048577, 3, 5, 1441796, 4, 3, 1048578)
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -48,28 +89,76 @@ data = {
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.822015, 0.569466, 0, -0.569466, 0.822015, 3.89534, 3.21005, 3.68661)
 
-[node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742788, 0)
+[node name="path_npc_2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.578674, 0)
 curve = SubResource("Curve3D_5rkdf")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.016255, 0, 0.999861, 0, 1, 0, -0.999861, 0, -0.016255, 1.31197, 0, 1.60818)
+[node name="PathFollow3D" type="PathFollow3D" parent="path_npc_2"]
+transform = Transform3D(-0.169424, -0.0731301, -0.98281, 3.72523e-09, 0.997237, -0.0742021, 0.985528, -0.0125719, -0.168957, 4.35423, 2.07475, 0.444046)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="path_npc_2/PathFollow3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Path3D/PathFollow3D/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="path_npc_2/PathFollow3D/MeshInstance3D"]
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_sofnw")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="path_npc_2/PathFollow3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("SphereShape3D_umuhu")
 
-[node name="RayCast3D" type="RayCast3D" parent="Path3D/PathFollow3D/MeshInstance3D/StaticBody3D"]
+[node name="RayCast3D" type="RayCast3D" parent="path_npc_2/PathFollow3D/MeshInstance3D/StaticBody3D"]
 transform = Transform3D(1, 0, 1.66533e-16, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 collision_mask = 2
 
-[node name="Npc" parent="Path3D/PathFollow3D/MeshInstance3D/StaticBody3D" instance=ExtResource("5_le78e")]
+[node name="Npc" parent="path_npc_2/PathFollow3D/MeshInstance3D/StaticBody3D" instance=ExtResource("5_le78e")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="path_npc_0" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288349, 0.977878, 0.877583)
+curve = SubResource("Curve3D_khyc2")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="path_npc_0"]
+transform = Transform3D(-0.0175072, 0.022332, 0.999585, 0, 0.999749, -0.0223352, -0.999836, -0.000391036, -0.0175028, 2.69594, -0.486379, 0.626268)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="path_npc_0/PathFollow3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="path_npc_0/PathFollow3D/MeshInstance3D"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="path_npc_0/PathFollow3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("SphereShape3D_umuhu")
+
+[node name="RayCast3D" type="RayCast3D" parent="path_npc_0/PathFollow3D/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 1.66533e-16, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collision_mask = 2
+
+[node name="Npc" parent="path_npc_0/PathFollow3D/MeshInstance3D/StaticBody3D" instance=ExtResource("5_le78e")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="path_npc_1" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474425, 0)
+curve = SubResource("Curve3D_mwgtk")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="path_npc_1"]
+transform = Transform3D(-0.0623773, 0, -0.998037, 0, 0.999994, 0, 0.998037, 0, -0.0623773, 2.61832, 6.07371e-05, 0.565635)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="path_npc_1/PathFollow3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="path_npc_1/PathFollow3D/MeshInstance3D"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="path_npc_1/PathFollow3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("SphereShape3D_umuhu")
+
+[node name="RayCast3D" type="RayCast3D" parent="path_npc_1/PathFollow3D/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 1.66533e-16, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collision_mask = 2
+
+[node name="Npc" parent="path_npc_1/PathFollow3D/MeshInstance3D/StaticBody3D" instance=ExtResource("5_le78e")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="PathingManager" type="Node" parent="."]
@@ -77,3 +166,63 @@ script = ExtResource("5_8tih4")
 
 [node name="Stone" parent="." instance=ExtResource("6_o8pcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54275, 0.480526, 1.65911)
+
+[node name="path_snowman_0" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490936, 0)
+curve = SubResource("Curve3D_5djge")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="path_snowman_0"]
+transform = Transform3D(-0.0221205, 0, 0.999755, 0, 1, 0, -0.999755, 0, -0.0221205, 6.4639, 3.08752e-05, 5.51269)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="path_snowman_0/PathFollow3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="path_snowman_0/PathFollow3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="path_snowman_0/PathFollow3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_563ye")
+
+[node name="RayCast3D" type="RayCast3D" parent="path_snowman_0/PathFollow3D/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, -5.55112e-16, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0111895, 0.578875, -0.271434)
+collision_mask = 8
+
+[node name="Snowman" parent="path_snowman_0/PathFollow3D/MeshInstance3D/StaticBody3D" instance=ExtResource("8_3yub1")]
+
+[node name="path_snowman_1" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490936, 0)
+curve = SubResource("Curve3D_ucp1t")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="path_snowman_1"]
+transform = Transform3D(-0.043438, 0, 0.999055, 0, 1, 0, -0.999055, 0, -0.043438, 6.43883, 3.03984e-05, 4.48467)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="path_snowman_1/PathFollow3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="path_snowman_1/PathFollow3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="path_snowman_1/PathFollow3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_563ye")
+
+[node name="RayCast3D" type="RayCast3D" parent="path_snowman_1/PathFollow3D/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, -5.55112e-16, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0111895, 0.578875, -0.271434)
+collision_mask = 8
+
+[node name="Snowman" parent="path_snowman_1/PathFollow3D/MeshInstance3D/StaticBody3D" instance=ExtResource("9_px7yu")]
+
+[node name="path_snowman_2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.465097, 0)
+curve = SubResource("Curve3D_y178u")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="path_snowman_2"]
+transform = Transform3D(0.999725, 0, 0.0234062, 0, 1, 0, -0.0234062, 0, 0.999725, 7.42425, 0, 4.48641)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="path_snowman_2/PathFollow3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="path_snowman_2/PathFollow3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="path_snowman_2/PathFollow3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_563ye")
+
+[node name="RayCast3D" type="RayCast3D" parent="path_snowman_2/PathFollow3D/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, -5.55112e-16, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0111895, 0.578875, -0.271434)
+collision_mask = 8
+
+[node name="Snowman" parent="path_snowman_2/PathFollow3D/MeshInstance3D/StaticBody3D" instance=ExtResource("10_pkafi")]

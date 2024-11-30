@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var fade_overlay = %FadeOverlay
 @onready var pause_overlay = %PauseOverlay
-
+@onready var pathing_manager = $PathingManager
 @onready var camera = $Camera3D
 @onready var raycast : RayCast3D = $RayCast3D
 @onready var grid_map : GridMap = $GridMap
@@ -29,7 +29,11 @@ func _input(event) -> void:
 		pause_overlay.grab_button_focus()
 		pause_overlay.visible = true
 		
-	if event.is_action_pressed("confirm_ability_placement"):
+	if event.is_action_pressed("use_ability_1") and not pause_overlay.visible:
+		pathing_manager.snowmen_activated = true
+		
+		
+	if event.is_action_pressed("confirm_ability_placement") and not pause_overlay.visible:
 		# Get the mouse position in the viewport
 		var mouse_position = event.position		
 		
@@ -58,6 +62,7 @@ func _spawn_object(obj, pos: Vector3):
 	object.transform.origin = pos + Vector3(0.5, 0.5, 0.5)
 	add_child(object)
 	pass
+
 
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())
