@@ -13,6 +13,7 @@ var spawn_point
 var new_tile_id = 0
 var PATH_SPEED := 1
 var current_path_speed = PATH_SPEED
+
 func _ready() -> void:
 	fade_overlay.visible = true
 	
