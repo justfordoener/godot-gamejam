@@ -72,12 +72,20 @@ func _input(event) -> void:
 			print("Clicked Tile ID:", tile_id)
 			# Change the tile to a new one (if needed)
 			grid_map.set_cell_item(Vector3i(grid_coords), new_tile_id)
+			
+			_spawn_object(stone)
 		else:
 			print("No collision detected.")
 			
 	if event.is_action_pressed("use_ability_1"):
 		# current_path_speed *= -1	
 		pass
-		
+
+func _spawn_object(obj, pos: Vector3):
+	var object = obj.instantiate()
+	add_child(object)
+	var aaaa = object.get_position()
+	pass
+
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())

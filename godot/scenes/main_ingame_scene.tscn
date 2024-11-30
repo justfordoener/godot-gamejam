@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/main_ingame_scene.gd" id="1_c2eda"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="4_1qrm3"]
-[ext_resource type="MeshLibrary" uid="uid://cksw744oaoley" path="res://assets/test_lib_16.tres" id="4_118e4"]
+[ext_resource type="MeshLibrary" path="res://assets/test_lib_16.tres" id="4_118e4"]
 [ext_resource type="Script" path="res://scenes/pathing_manager.gd" id="5_8tih4"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="5_unnr3"]
-[ext_resource type="PackedScene" uid="uid://bbgywqk68xtfq" path="res://assets/stone.tscn" id="6_o8pcn"]
+[ext_resource type="PackedScene" uid="uid://bjrp7t2it12gk" path="res://assets/stone.tscn" id="6_o8pcn"]
 
 [sub_resource type="Curve3D" id="Curve3D_5rkdf"]
 _data = {
@@ -54,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788026, 0)
 curve = SubResource("Curve3D_5rkdf")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.0162579, 0, 0.999865, 0, 1, 0, -0.999865, 0, -0.0162579, 1.31197, 0, 1.60818)
+transform = Transform3D(-0.016255, 0, 0.999865, 0, 1, 0, -0.999865, 0, -0.016255, 1.31197, 0, 1.60818)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
