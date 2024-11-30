@@ -6,7 +6,18 @@ extends Node3D
 @onready var camera = $Camera3D
 @onready var raycast : RayCast3D = $RayCast3D
 @onready var grid_map : GridMap = $GridMap
+<<<<<<< Updated upstream
 var new_tile_id = 1
+=======
+@onready var path_follow : PathFollow3D = $Path3D/PathFollow3D
+
+var stone = preload("res://assets/stone.tscn")
+var spawn_point
+var new_tile_id = 0
+var PATH_SPEED := 1
+var current_path_speed = PATH_SPEED
+var on_break = false
+>>>>>>> Stashed changes
 
 func _ready() -> void:
 	fade_overlay.visible = true
@@ -46,7 +57,10 @@ func _input(event) -> void:
 			
 			var local_pos = grid_map.to_local(collision_point)
 			var grid_coords = grid_map.local_to_map(local_pos)
-			
+			#spawn_point
+			print("Local point: ", local_pos)
+			print("Spawn point: ", spawn_point)
+			_spawn_object(stone, grid_coords)
 			# Get the current tile
 			var tile_id = grid_map.get_cell_item(Vector3i(grid_coords))
 			print("Clicked Tile ID:", tile_id)
@@ -57,5 +71,11 @@ func _input(event) -> void:
 			
 	
 		
+func _spawn_object(obj, pos: Vector3):
+	var object = obj.instantiate()
+	add_child(object)
+	var aaaa = object.get_position()
+	pass
+	
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())
