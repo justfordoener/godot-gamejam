@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcig1vpv5f4tp"]
+
+[ext_resource type="Shader" uid="uid://c41oysfwhaomh" path="res://scenes/shaders/DebugGrid.tres" id="1_1d281"]
+[ext_resource type="Shader" path="res://scenes/shaders/cutInEffect.gdshader" id="1_euyj7"]
+[ext_resource type="Texture2D" uid="uid://bqmx74v6d6xx8" path="res://assets/sprites/Miku.png" id="2_ughvn"]
+[ext_resource type="PackedScene" uid="uid://ce3agn3j13abv" path="res://assets/UI/DalogueWindow.tscn" id="4_wqb58"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h5qmd"]
+shader = ExtResource("1_1d281")
+shader_parameter/UVSize = Vector2(574, 322)
+shader_parameter/UVScale = 108.325
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8auwo"]
+shader = ExtResource("1_euyj7")
+shader_parameter/DEBUGID = 8
+shader_parameter/blendValue = 1.0
+shader_parameter/OffsetValue = 0.108
+shader_parameter/UVOffsetValue = 0.324
+shader_parameter/TPoint1Start = Vector2(1.185, 0.23)
+shader_parameter/TPoint2Start = Vector2(1.035, 0.275)
+shader_parameter/TPoint3Start = Vector2(1.04, 0.285)
+shader_parameter/TPoint1End = Vector2(0, 0)
+shader_parameter/TPoint2End = Vector2(0, 0)
+shader_parameter/TPoint3End = Vector2(0, 0)
+shader_parameter/polygon = PackedVector2Array(-0.045, 0.47, 1.21, 0.215, 0.82, 0.415, 1.22, 0.565)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+metadata/_edit_vertical_guides_ = [1084.0]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 575.0
+offset_bottom = 325.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_h5qmd")
+layout_mode = 0
+offset_right = 574.0
+offset_bottom = 322.0
+
+[node name="Miku" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8auwo")
+position = Vector2(2, -178)
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("2_ughvn")
+centered = false
+
+[node name="NinePatchRect" parent="." instance=ExtResource("4_wqb58")]

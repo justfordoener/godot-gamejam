@@ -1,0 +1,27 @@
+[gd_resource type="Shader" format=3 uid="uid://c41oysfwhaomh"]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec2 UVSize = vec2(1., 1.);
+uniform float UVScale = 1.;
+
+
+
+void fragment() {
+	vec4 finalCol = vec4(0., 0., 0., 1.);
+	vec2 ModValue = vec2(10.,10.);
+	float UVRatio = UVSize.r / UVSize.g;
+	vec2 CustomUV = ceil(sin(vec2(UV.r * UVRatio, UV.g) * UVScale));
+	vec4 GridColorsX = mix(vec4(0.,0.,0.,1.), vec4(1.,1.,1.,1.), CustomUV.r);
+	vec4 GridColorsY = mix(vec4(0.,0.,0.,1.), vec4(1.,1.,1.,1.), CustomUV.g);
+	
+	
+	
+	//finalCol.r = CustomUV.r - CustomUV.g;
+	finalCol.rg = CustomUV;
+	
+	COLOR = finalCol;
+}
+"

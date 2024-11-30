@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dpk0gspieyc6w"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 92.0
+offset_right = 307.0
+offset_bottom = 133.0
+text = "Test button"
