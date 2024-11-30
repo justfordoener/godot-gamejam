@@ -76,8 +76,8 @@ func _update_bock_bar(delta: float, num: int) -> void:
 			anim_0_walk.play("Walkcycle")
 		movement_speed[num] = -1.5 * MOVEMENT_SPEED
 		if (path_follow[num].progress == 0.0) and is_moving[num]:
-			is_moving[num] = false
 			#regenerate bock
+			is_moving[num] = false
 			await get_tree().create_timer(5.0).timeout
 			path_follow[num].progress = 0.1
 			bock_bar[num].value = 100
