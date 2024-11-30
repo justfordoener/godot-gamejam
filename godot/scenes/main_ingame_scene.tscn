@@ -53,7 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742788, 0)
 curve = SubResource("Curve3D_5rkdf")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.016255, 0, 0.999862, 0, 1, 0, -0.999862, 0, -0.016255, 1.31197, 0, 1.60818)
+transform = Transform3D(-0.016255, 0, 0.999861, 0, 1, 0, -0.999861, 0, -0.016255, 1.31197, 0, 1.60818)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

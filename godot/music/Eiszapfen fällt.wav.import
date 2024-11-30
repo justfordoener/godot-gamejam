@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3stusglec5ak"
+path="res://.godot/imported/Eiszapfen fällt.wav-13b6601e7873903e9d64e53a69128867.sample"
+
+[deps]
+
+source_file="res://music/Eiszapfen fällt.wav"
+dest_files=["res://.godot/imported/Eiszapfen fällt.wav-13b6601e7873903e9d64e53a69128867.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
