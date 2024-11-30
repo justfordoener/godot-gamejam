@@ -6,7 +6,12 @@ extends Node3D
 @onready var camera = $Camera3D
 @onready var raycast : RayCast3D = $RayCast3D
 @onready var grid_map : GridMap = $GridMap
-var new_tile_id = 1
+@onready var path_follow : PathFollow3D = $Path3D/PathFollow3D
+
+var new_tile_id = 0
+var PATH_SPEED := 1
+var current_path_speed = PATH_SPEED
+var on_break = false
 
 func _ready() -> void:
 	fade_overlay.visible = true
@@ -15,7 +20,21 @@ func _ready() -> void:
 		SaveGame.load_game(get_tree())
 	
 	pause_overlay.game_exited.connect(_save_game)
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	_walk(delta)
 
+func _walk(delta: float) -> void:
+	if !on_break:
+		path_follow.loop = false
+		path_follow.progress += delta * current_path_speed;
+		
+		if path_follow.progress == 0:
+			current_path_speed = 0 
+			await get_tree().create_timer(2.0).timeout
+			current_path_speed = PATH_SPEED
+	
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:
 		get_viewport().set_input_as_handled()
@@ -55,7 +74,8 @@ func _input(event) -> void:
 		else:
 			print("No collision detected.")
 			
-	
+	if event.is_action_pressed("use_ability_1"):
+		current_path_speed *= -1	
 		
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())
