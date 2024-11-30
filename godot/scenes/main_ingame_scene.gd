@@ -23,7 +23,8 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_walk(delta)
+	#_walk(delta)
+	pass
 
 func _walk(delta: float) -> void:
 	if !on_break:
@@ -75,7 +76,8 @@ func _input(event) -> void:
 			print("No collision detected.")
 			
 	if event.is_action_pressed("use_ability_1"):
-		current_path_speed *= -1	
+		# current_path_speed *= -1	
+		pass
 		
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())

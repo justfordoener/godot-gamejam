@@ -1,18 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://xnua2qbaqep1"]
+[gd_scene load_steps=10 format=3 uid="uid://xnua2qbaqep1"]
 
 [ext_resource type="Script" path="res://scenes/main_ingame_scene.gd" id="1_c2eda"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="4_1qrm3"]
 [ext_resource type="MeshLibrary" uid="uid://cksw744oaoley" path="res://assets/test_lib_16.tres" id="4_118e4"]
+[ext_resource type="Script" path="res://scenes/pathing_manager.gd" id="5_8tih4"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="5_unnr3"]
+[ext_resource type="PackedScene" uid="uid://bbgywqk68xtfq" path="res://assets/stone.tscn" id="6_o8pcn"]
 
 [sub_resource type="Curve3D" id="Curve3D_5rkdf"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.31197, 0, 1.60818, 0, 0, 0, 0, 0, 0, -0.451512, 0, 1.63685, 0, 0, 0, 0, 0, 0, -0.437175, 0, 4.44696, 0, 0, 0, 0, 0, 0, 3.49124, 0, 4.48997, 0, 0, 0, 0, 0, 0, 7.477, 0, 4.54732),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.31197, 0, 1.60818, 0, 0, 0, 0, 0, 0, 0.261367, 0, 1.62526, 0, 0, 0, 0, 0, 0, -0.451512, 0, 1.63685, 0, 0, 0, 0, 0, 0, -0.447515, 0, 2.42033, 0, 0, 0, 0, 0, 0, -0.444144, 0, 3.08095, 0, 0, 0, 0, 0, 0, -0.440596, 0, 3.77637, 0, 0, 0, 0, 0, 0, -0.437175, 0, 4.44696, 0, 0, 0, 0, 0, 0, 0.549618, -5.96046e-08, 4.45777, 0, 0, 0, 0, 0, 0, 1.48685, 0, 4.46803, 0, 0, 0, 0, 0, 0, 2.49404, 0, 4.47905, 0, 0, 0, 0, 0, 0, 3.49124, 0, 4.48997, 0, 0, 0, 0, 0, 0, 4.54661, 0, 4.50516, 0, 0, 0, 0, 0, 0, 5.45281, 0, 4.5182, 0, 0, 0, 0, 0, 0, 6.54532, 0, 4.53392, 0, 0, 0, 0, 0, 0, 7.477, 0, 4.54732),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 5
+point_count = 15
 
 [sub_resource type="BoxMesh" id="BoxMesh_tuvj3"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sofnw"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_c2eda")
@@ -45,12 +50,29 @@ data = {
 transform = Transform3D(1, 0, 0, 0, 0.822015, 0.569466, 0, -0.569466, 0.822015, 3.89534, 3.21005, 3.68661)
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79786, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788026, 0)
 curve = SubResource("Curve3D_5rkdf")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.0162579, 0, 0.999866, 0, 1, 0, -0.999866, 0, -0.0162579, 1.31197, 0, 1.60818)
+transform = Transform3D(-0.0162579, 0, 0.999865, 0, 1, 0, -0.999865, 0, -0.0162579, 1.31197, 0, 1.60818)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_tuvj3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Path3D/PathFollow3D/MeshInstance3D"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_sofnw")
+
+[node name="RayCast3D" type="RayCast3D" parent="Path3D/PathFollow3D/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 1.66533e-16, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collision_mask = 2
+
+[node name="PathingManager" type="Node" parent="."]
+script = ExtResource("5_8tih4")
+
+[node name="Stone" parent="." instance=ExtResource("6_o8pcn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54275, 0.480526, 1.65911)
