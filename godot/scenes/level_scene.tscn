@@ -2,7 +2,7 @@
 
 [ext_resource type="Shape3D" uid="uid://b8ppcx7iax22v" path="res://assets/box.tres" id="1_0wqm5"]
 [ext_resource type="Script" path="res://scenes/level_scene.gd" id="1_fi7lr"]
-[ext_resource type="ArrayMesh" uid="uid://d3vlvel4ex0un" path="res://kenny_nature_kit/Models/OBJ format/bed.obj" id="3_edguh"]
+[ext_resource type="ArrayMesh" uid="uid://d3vlvel4ex0un" path="res://assets/kenny_nature_kit/Models/OBJ format/bed.obj" id="3_edguh"]
 
 [node name="LevelScene" type="Node3D"]
 script = ExtResource("1_fi7lr")

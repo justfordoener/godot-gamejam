@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0dvco3n87mf5"
+path="res://.godot/imported/cliff_cornerLarge_rock.obj-a2fe3d1fce6d6c20844064a1d0a577ac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cliff_cornerLarge_rock.obj-a2fe3d1fce6d6c20844064a1d0a577ac.mesh"]
+
+source_file="res://assets/kenny_nature_kit/Models/OBJ format/cliff_cornerLarge_rock.obj"
+dest_files=["res://.godot/imported/cliff_cornerLarge_rock.obj-a2fe3d1fce6d6c20844064a1d0a577ac.mesh", "res://.godot/imported/cliff_cornerLarge_rock.obj-a2fe3d1fce6d6c20844064a1d0a577ac.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

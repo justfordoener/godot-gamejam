@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ryc4i4qlokhr"
+path="res://.godot/imported/fence_simpleDiagonal.obj-548302d54a81c52ef9bd25583e3a954b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence_simpleDiagonal.obj-548302d54a81c52ef9bd25583e3a954b.mesh"]
+
+source_file="res://assets/kenny_nature_kit/Models/OBJ format/fence_simpleDiagonal.obj"
+dest_files=["res://.godot/imported/fence_simpleDiagonal.obj-548302d54a81c52ef9bd25583e3a954b.mesh", "res://.godot/imported/fence_simpleDiagonal.obj-548302d54a81c52ef9bd25583e3a954b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

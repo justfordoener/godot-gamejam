@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dcvrmuthrn1a4"
+path="res://.godot/imported/statue_head.obj-fbf531d1b09c367941483ff5d08eb360.mesh"
+
+[deps]
+
+files=["res://.godot/imported/statue_head.obj-fbf531d1b09c367941483ff5d08eb360.mesh"]
+
+source_file="res://assets/kenny_nature_kit/Models/OBJ format/statue_head.obj"
+dest_files=["res://.godot/imported/statue_head.obj-fbf531d1b09c367941483ff5d08eb360.mesh", "res://.godot/imported/statue_head.obj-fbf531d1b09c367941483ff5d08eb360.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
