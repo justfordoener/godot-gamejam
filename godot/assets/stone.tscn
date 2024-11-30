@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bbgywqk68xtfq"]
+[gd_scene load_steps=5 format=4 uid="uid://bjrp7t2it12gk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mt3ae"]
 resource_name = "stone"
@@ -53,5 +53,4 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stone_smallD2/hahhahas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_aj0b6")

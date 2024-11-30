@@ -15,7 +15,11 @@ var is_moving = [NPC_COUNT]
 var path_follow = [NPC_COUNT]
 @onready var raycast_0 : RayCast3D = $"../Path3D/PathFollow3D/MeshInstance3D/StaticBody3D/RayCast3D"
 @onready var raycast_1 : RayCast3D #= $"../Path3D/PathFollow3D/MeshInstance3D/StaticBody3D/RayCast3D"
+var anim_0_walk : AnimationPlayer
+var anim_0_idle : AnimationPlayer
+var anim_0_shovel : AnimationPlayer
 var raycast = [NPC_COUNT]
+@onready var npc_0 : Node3D = $"../Path3D/PathFollow3D/MeshInstance3D/StaticBody3D/Npc"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,6 +33,9 @@ func _ready() -> void:
 	#path_follow[1] = path_follow_1
 	raycast[0] = raycast_0
 	#raycast[1] = raycast_1
+	anim_0_idle = npc_0.get_child(0).get_child(1)
+	anim_0_walk = npc_0.get_child(0).get_child(2)
+	anim_0_shovel = npc_0.get_child(0).get_child(3)
 	
 	
 
@@ -57,4 +64,7 @@ func _check_collision(num: int) -> void:
 
 func _move_npc(delta: float, num: int) -> void:
 	if is_moving[num]:
+		anim_0_walk.play("Walkcycle")
 		path_follow[num].progress += delta * movement_speed[num]
+	else:
+		anim_0_shovel.play("Shovel")
