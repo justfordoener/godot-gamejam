@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://xnua2qbaqep1"]
+[gd_scene load_steps=22 format=3 uid="uid://xnua2qbaqep1"]
 
 [ext_resource type="Script" path="res://scripts/main_ingame_scene.gd" id="1_c2eda"]
+[ext_resource type="PackedScene" uid="uid://bcig1vpv5f4tp" path="res://scenes/dialogue/canvasUI.tscn" id="2_kgc0a"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="4_1qrm3"]
 [ext_resource type="MeshLibrary" uid="uid://kkoav74j57kl" path="res://assets/lib_01.tres" id="4_pwhs1"]
 [ext_resource type="Script" path="res://scripts/pathing_manager.gd" id="5_8tih4"]
@@ -63,6 +64,8 @@ point_count = 3
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_c2eda")
+
+[node name="canvasUI" parent="." instance=ExtResource("2_kgc0a")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -191,7 +194,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490936, 0)
 curve = SubResource("Curve3D_ucp1t")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="path_snowman_1"]
-transform = Transform3D(-0.043438, 0, 0.999054, 0, 1, 0, -0.999054, 0, -0.043438, 6.43883, 3.03984e-05, 4.48467)
+transform = Transform3D(-0.0434379, 0, 0.999054, 0, 1, 0, -0.999054, 0, -0.0434379, 6.43883, 3.03984e-05, 4.48467)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="path_snowman_1/PathFollow3D"]
 

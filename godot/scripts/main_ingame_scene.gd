@@ -6,6 +6,7 @@ extends Node3D
 @onready var camera = $Camera3D
 @onready var raycast : RayCast3D = $RayCast3D
 @onready var grid_map : GridMap = $GridMap
+@onready var dialogue_ui : CanvasLayer = $canvasUI
 
 var stone = preload("res://scenes/stone.tscn")
 
@@ -31,6 +32,9 @@ func _input(event) -> void:
 		
 	if event.is_action_pressed("use_ability_1") and not pause_overlay.visible:
 		pathing_manager.snowmen_activated = true
+		
+	if event.is_action_pressed("use_ability_2") and not pause_overlay.visible:
+		dialogue_ui.UpdateDialogueWindow(0)
 		
 		
 	if event.is_action_pressed("confirm_ability_placement") and not pause_overlay.visible:

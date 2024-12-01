@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ce3agn3j13abv"]
+[gd_scene load_steps=10 format=3 uid="uid://bge5pfu145lxq"]
 
 [ext_resource type="Script" path="res://assets/UI/dialogueWindow.gd" id="1_r7y03"]
 [ext_resource type="Texture2D" uid="uid://gvll4c8h56h1" path="res://assets/UI/DialogueBackground.png" id="2_r7lp4"]
@@ -6,6 +6,22 @@
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_1kp1h"]
 script = ExtResource("3_fwmlv")
+
+[sub_resource type="Animation" id="Animation_41oli"]
+resource_name = "ContinueDialogue"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../DialogueBox/DialogueText:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_vg170"]
 length = 0.001
@@ -184,22 +200,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_41oli"]
-resource_name = "ContinueDialogue"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../DialogueBox/DialogueText:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gn4vs"]

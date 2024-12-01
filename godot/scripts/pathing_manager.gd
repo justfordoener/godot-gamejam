@@ -12,6 +12,7 @@ var movement_speed = [movement_speed_0, movement_speed_1, movement_speed_2]
 var is_moving_0 = true
 var is_moving_1 = true
 var is_moving_2 = true
+var game_started = false
 var is_moving = [is_moving_0, is_moving_1, is_moving_2]
 @onready var path_follow_0 : PathFollow3D = $"../path_npc_0/PathFollow3D"
 @onready var path_follow_1 : PathFollow3D = $"../path_npc_1/PathFollow3D"
@@ -85,6 +86,10 @@ func _ready() -> void:
 	anim_snowman_2_chase = snowman_2.get_child(0).get_child(3)
 
 func _process(delta: float) -> void:
+	
+	if !game_started:
+		pass
+	
 	# npc #0
 	_move_npc(delta, 0)
 	_check_collision(0) 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/dialogue/canvasUI_script.gd" id="1_bsrr6"]
 [ext_resource type="Shader" path="res://scenes/shaders/cutInEffect.gdshader" id="1_euyj7"]
 [ext_resource type="Texture2D" uid="uid://3sdx1kx5yrql" path="res://assets/sprites/Frosty.png" id="4_gs34h"]
-[ext_resource type="PackedScene" uid="uid://ce3agn3j13abv" path="res://assets/UI/DialogueWindow.tscn" id="4_wqb58"]
+[ext_resource type="PackedScene" uid="uid://bge5pfu145lxq" path="res://assets/UI/DialogueWindow.tscn" id="5_74gge"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h5qmd"]
 shader = ExtResource("1_1d281")
@@ -65,33 +65,6 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_a3scq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/CutInValue")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:material:shader_parameter/CutOutValue")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="Animation" id="Animation_ywwj5"]
 resource_name = "CutOut"
 length = 0.2
@@ -118,6 +91,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_a3scq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/CutInValue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/CutOutValue")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17wnc"]
@@ -151,10 +151,10 @@ scale = Vector2(0.3, 0.298)
 texture = ExtResource("4_gs34h")
 centered = false
 
-[node name="DialogueWindow" parent="." instance=ExtResource("4_wqb58")]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Miku")
 libraries = {
 "": SubResource("AnimationLibrary_17wnc")
 }
+
+[node name="DialogueWindow" parent="." instance=ExtResource("5_74gge")]
