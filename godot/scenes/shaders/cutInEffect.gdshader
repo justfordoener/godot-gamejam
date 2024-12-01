@@ -1,8 +1,9 @@
 shader_type canvas_item;
 render_mode blend_mix;
 
-uniform int DEBUGID: hint_range(0, 9) = 1;
-uniform float blendValue: hint_range(0.0, 1.0) = 1.0;
+uniform float DEBUGID: hint_range(0, 9) = 1.;
+uniform float CutInValue: hint_range(0.0, 1.0) = 1.0;
+uniform float CutOutValue: hint_range(0.0, 1.0) = 0.0;
 uniform float OffsetValue: hint_range(0.0, 0.2) = 0.1;
 uniform float UVOffsetValue: hint_range(0.0, 1.0) = 0.1;
 uniform vec2 TPoint1Start = vec2(1.215, 0.065);
@@ -11,11 +12,25 @@ uniform vec2 TPoint3Start = vec2(-0.08, 0.575);
 uniform vec2 TPoint1End = vec2(1.215, 0.065);
 uniform vec2 TPoint2End = vec2(1.035, 0.49);
 uniform vec2 TPoint3End = vec2(-0.08, 0.575);
+uniform vec2 TPoint1Out = vec2(1.215, 0.065);
+uniform vec2 TPoint2Out = vec2(1.035, 0.49);
+uniform vec2 TPoint3Out = vec2(-0.08, 0.575);
 
 //const vec2 PPoint1 = vec2(0.0, 0.0);
 //const vec2 PPoint2 = vec2(0.0, 0.0);
 //const vec2 PPoint3 = vec2(0.0, 0.0);
 //const vec2 PPoint4 = vec2(0.0, 0.0);
+
+uniform vec3 Blue = vec3(0.,0.,1.);
+uniform vec3 Red = vec3(.6,0.,0.);
+uniform vec3 Teal = vec3(.0,.4,.4);
+uniform vec4 BlueBackground = vec4(0.,0.,.7,.7);
+uniform vec4 RedBackground = vec4(.7,0.,0.,.7);
+uniform vec4 TealBackground = vec4(0.,.4,.5,.7);
+
+
+uniform vec3 OutlineColor = vec3(0.,0.,1.);
+uniform vec4 BackgroundColor = vec4(0.,0.,.7,.7);
 
 const int N = 4;
 
@@ -69,9 +84,10 @@ void fragment() {
 	vec4 Texture = texture(TEXTURE, CustomUV);
 	vec4 finalColor = vec4(1,0,0,1);
 	float TimeDivide = float(360);
+	
+	
 	//float TimeCalc = sin(TIME) * 0.5 + 0.5;
 	float TimeCalc = (sin(TIME*2.) + 5.0) / 60.0;
-	vec4 BlueBackground = vec4(0.,0.,0.7,0.7);
 	
 	float OffsetCalc = OffsetValue * TimeCalc;
 	
@@ -79,24 +95,22 @@ void fragment() {
 	vec4 TextureOffsetLeft = texture(TEXTURE, CustomUV + vec2(OffsetCalc, 0));
 	
 	
-	vec2 TPoint1Slide = mix(TPoint1Start, TPoint1End, blendValue);
-	vec2 TPoint2Slide = mix(TPoint2Start, TPoint2End, blendValue);
-	vec2 TPoint3Slide = mix(TPoint3Start, TPoint3End, blendValue);
+	vec2 TPoint1Slide = mix(TPoint1Start, mix(TPoint1End ,TPoint1Out, CutOutValue), CutInValue);
+	vec2 TPoint2Slide = mix(TPoint2Start, mix(TPoint2End ,TPoint2Out, CutOutValue), CutInValue);
+	vec2 TPoint3Slide = mix(TPoint3Start, mix(TPoint3End ,TPoint3Out, CutOutValue), CutInValue);
 	
 	
-	float sphere = ceil(1.0 - (distance(CustomUV,vec2(0.5,0.5)))-float(blendValue));
-	vec4 sphereCutout = vec4(sphere);
 	vec4 BackgroundWhite = vec4(1.,1.,1.,floor(1.0 - sdPolygon(polygon, UV)));
 	float RenderMaskTriangle = floor(1.0 - sdTriangle(UV, TPoint1Slide, TPoint2Slide, TPoint3Slide));
 	
-	vec4 BlueMiku = mix(TextureOffsetLeft, vec4(0,0,1,TextureOffsetLeft.a), 1);
+	vec4 BlueMiku = mix(TextureOffsetLeft, vec4(OutlineColor,TextureOffsetLeft.a), 1);
 	vec4 GrayMiku = mix(TextureOffsetRight, vec4(0.3,0.3,0.3,TextureOffsetRight.a), 1);
 	vec4 OutlineMiku = mix(BlueMiku, GrayMiku, GrayMiku.w);
 	vec4 FinalMiku = mix(OutlineMiku, Texture, Texture.w);
 	vec4 BlackMiku = mix(FinalMiku, vec4(0.,0.,0.,ceil(FinalMiku.w)), 1);
 	vec4 MikuComp = mix(BlackMiku, FinalMiku, BackgroundWhite.w);
 	vec4 BackgroundComp = mix(BackgroundWhite, MikuComp, MikuComp.w);
-	vec4 FinalComp = mix(BlueBackground, BackgroundComp, BackgroundComp.w);
+	vec4 FinalComp = mix(BackgroundColor, BackgroundComp, BackgroundComp.w);
 	vec4 FinalMask = vec4(FinalComp.rgb, FinalComp.w * RenderMaskTriangle);
 	
 	vec4 DEBUGLAYERS =	mix(BlueMiku, 
@@ -108,14 +122,14 @@ void fragment() {
 						mix(BackgroundComp,
 						mix(FinalComp,
 						FinalMask,
-						clamp(float(DEBUGID/8),0.,1.)), 
-						clamp(float(DEBUGID/7),0.,1.)), 
-						clamp(float(DEBUGID/6),0.,1.)), 
-						clamp(float(DEBUGID/5),0.,1.)), 
-						clamp(float(DEBUGID/4),0.,1.)), 
-						clamp(float(DEBUGID/3),0.,1.)), 
-						clamp(float(DEBUGID/2),0.,1.)), 
-						clamp(float(DEBUGID),0.,1.));
+						clamp(floor(DEBUGID/8.),0.,1.)), 
+						clamp(floor(DEBUGID/7.),0.,1.)), 
+						clamp(floor(DEBUGID/6.),0.,1.)), 
+						clamp(floor(DEBUGID/5.),0.,1.)), 
+						clamp(floor(DEBUGID/4.),0.,1.)), 
+						clamp(floor(DEBUGID/3.),0.,1.)), 
+						clamp(floor(DEBUGID/2.),0.,1.)), 
+						clamp(floor(DEBUGID),0.,1.));
 
 	
 	//finalColor = mix(Texture, vec4(TimeCalc,TimeCalc,TimeCalc,Texture.w), blendValue);

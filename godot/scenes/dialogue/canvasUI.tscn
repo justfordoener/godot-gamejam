@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcig1vpv5f4tp"]
+[gd_scene load_steps=12 format=3 uid="uid://bcig1vpv5f4tp"]
 
 [ext_resource type="Shader" uid="uid://c41oysfwhaomh" path="res://scenes/shaders/DebugGrid.tres" id="1_1d281"]
+[ext_resource type="Script" path="res://scenes/dialogue/canvasUI_script.gd" id="1_bsrr6"]
 [ext_resource type="Shader" path="res://scenes/shaders/cutInEffect.gdshader" id="1_euyj7"]
-[ext_resource type="Texture2D" uid="uid://bqmx74v6d6xx8" path="res://assets/sprites/Miku.png" id="2_ughvn"]
-[ext_resource type="PackedScene" uid="uid://ce3agn3j13abv" path="res://assets/UI/DalogueWindow.tscn" id="4_wqb58"]
+[ext_resource type="Texture2D" uid="uid://3sdx1kx5yrql" path="res://assets/sprites/Frosty.png" id="4_gs34h"]
+[ext_resource type="PackedScene" uid="uid://ce3agn3j13abv" path="res://assets/UI/DialogueWindow.tscn" id="4_wqb58"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h5qmd"]
 shader = ExtResource("1_1d281")
@@ -12,20 +13,124 @@ shader_parameter/UVScale = 108.325
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8auwo"]
 shader = ExtResource("1_euyj7")
-shader_parameter/DEBUGID = 8
-shader_parameter/blendValue = 1.0
-shader_parameter/OffsetValue = 0.108
-shader_parameter/UVOffsetValue = 0.324
+shader_parameter/DEBUGID = 8.496
+shader_parameter/CutInValue = 1.0
+shader_parameter/CutOutValue = 0.0
+shader_parameter/OffsetValue = 0.154
+shader_parameter/UVOffsetValue = 0.0
 shader_parameter/TPoint1Start = Vector2(1.185, 0.23)
 shader_parameter/TPoint2Start = Vector2(1.035, 0.275)
 shader_parameter/TPoint3Start = Vector2(1.04, 0.285)
-shader_parameter/TPoint1End = Vector2(0, 0)
-shader_parameter/TPoint2End = Vector2(0, 0)
-shader_parameter/TPoint3End = Vector2(0, 0)
-shader_parameter/polygon = PackedVector2Array(-0.045, 0.47, 1.21, 0.215, 0.82, 0.415, 1.22, 0.565)
+shader_parameter/TPoint1End = Vector2(1.02, 0.015)
+shader_parameter/TPoint2End = Vector2(1.195, 0.475)
+shader_parameter/TPoint3End = Vector2(-0.14, 0.68)
+shader_parameter/TPoint1Out = Vector2(1.215, 0.27)
+shader_parameter/TPoint2Out = Vector2(1.035, 0.315)
+shader_parameter/TPoint3Out = Vector2(-0.08, 0.575)
+shader_parameter/Blue = Vector3(0, 0, 1)
+shader_parameter/Red = Vector3(0.6, 0, 0)
+shader_parameter/Teal = Vector3(0, 0.4, 0.4)
+shader_parameter/BlueBackground = Vector4(0, 0, 0.7, 0.7)
+shader_parameter/RedBackground = Vector4(0.7, 0, 0, 0.7)
+shader_parameter/TealBackground = Vector4(0, 0.4, 0.5, 0.7)
+shader_parameter/OutlineColor = Vector3(0, 0, 1)
+shader_parameter/BackgroundColor = Vector4(0, 0, 0.7, 0.7)
+shader_parameter/polygon = PackedVector2Array(0.005, 0.475, 1.315, 0.05, 0.73, 0.45, 1.22, 0.71)
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[sub_resource type="Animation" id="Animation_caopn"]
+resource_name = "CutIn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/CutInValue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/CutOutValue")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a3scq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/CutInValue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/CutOutValue")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ywwj5"]
+resource_name = "CutOut"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/CutInValue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/CutOutValue")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17wnc"]
+_data = {
+"CutIn": SubResource("Animation_caopn"),
+"CutOut": SubResource("Animation_ywwj5"),
+"RESET": SubResource("Animation_a3scq")
+}
+
+[node name="canvasUI" type="CanvasLayer"]
+script = ExtResource("1_bsrr6")
 metadata/_edit_vertical_guides_ = [1084.0]
+metadata/_edit_horizontal_guides_ = [67.0]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -34,6 +139,7 @@ offset_right = 575.0
 offset_bottom = 325.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
 material = SubResource("ShaderMaterial_h5qmd")
 layout_mode = 0
 offset_right = 574.0
@@ -41,9 +147,14 @@ offset_bottom = 322.0
 
 [node name="Miku" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_8auwo")
-position = Vector2(2, -178)
-scale = Vector2(0.58, 0.58)
-texture = ExtResource("2_ughvn")
+scale = Vector2(0.3, 0.298)
+texture = ExtResource("4_gs34h")
 centered = false
 
-[node name="NinePatchRect" parent="." instance=ExtResource("4_wqb58")]
+[node name="DialogueWindow" parent="." instance=ExtResource("4_wqb58")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Miku")
+libraries = {
+"": SubResource("AnimationLibrary_17wnc")
+}

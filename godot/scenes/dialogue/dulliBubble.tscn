@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cslfej3uf5o6f"]
+
+[ext_resource type="Shader" path="res://scenes/dialogue/dulliBubble.gdshader" id="1_4e7q4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qeyy"]
+render_priority = 0
+shader = ExtResource("1_4e7q4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlnb0"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_d3dh5"]
+
+[node name="DulliBubble" type="Sprite3D"]
+material_override = SubResource("ShaderMaterial_1qeyy")
+material_overlay = SubResource("ShaderMaterial_mlnb0")
+modulate = Color(0, 0, 0.215686, 0.301961)
+pixel_size = 0.0001
+billboard = 1
+texture = SubResource("ImageTexture_d3dh5")
+
+[node name="Label3D" type="Label3D" parent="."]
+text = "Alles scheiße hier"
+font_size = 34
+autowrap_mode = 2
+width = 300.0

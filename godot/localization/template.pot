@@ -1,0 +1,68 @@
+# LANGUAGE translation for MyGame for the following files:
+# res://scenes/dialogue/DialogueTexts.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MyGame\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: DialogueTexts.tscn
+msgid "6:00 AM, Hoher Meißner 12b, 37290 Nimmerland. ... bzw. Hessen"
+msgstr "6:00 AM, Hoher Meißner 12b, 37290 Nimmerland. ... or Hesse"
+
+#: DialogueTexts.tscn
+msgid "Gar kein Bock. Man, ey! Gar. Kein. Bock!"
+msgstr "Fuuuuuck me. Uuuuggh! I. Don't. Wanna! FK!!!"
+
+#: DialogueTexts.tscn
+msgid "Früher war echt alles besser! Kinder da, die die Betten aufschütteln, Brot ausm Ofen ziehn, Äpfel aufräumen, ..."
+msgstr "Used to be I had help around... Kids to air the bedclothes, give the cushions a good shake..."
+
+#: DialogueTexts.tscn
+msgid "Warum so wenig Kinder heutzutage mehr in Brunnen fallen. Überhaupt, die Jugend!!"
+msgstr "Used to be kids fell in wells... The youth, anyways!!!"
+
+#: DialogueTexts.tscn
+msgid "Da konnt man den Kindern noch was beibringen! Und all die freie Arbeitskraft!"
+msgstr "Those were the times where you could teach them something. And all that free labour!"
+
+#: DialogueTexts.tscn
+msgid "Boa, nee, man. Alles [wave]snowed-in!![/wave] Voll kacke, ey. Gar kein Bock das alles freizuschaufeln damit wir fahren können..."
+msgstr "Aw maaan! We're [wave]snowed-in!![/wave] We need to shovel all that shit to get home..."
+
+#: DialogueTexts.tscn
+msgid "Was zum fick hören meine Ohren da???"
+msgstr "The fuck did I just hear???"
+
+#: DialogueTexts.tscn
+msgid "Ihr fahrt nirgends hin! Euer Tag ist hiermit gelaufen!!"
+msgstr "You guys are going nowhere today! Your day is done!!"
+
+#: DialogueTexts.tscn
+msgid "Schneeschaufeln?! Mein natürlicher Freind! Wartet nur, wo der Schnee herkommt gibts noch mehr!!"
+msgstr "Snow shovels?! My natural enemy! Just you wait, there is more snow where this came from!"
+
+#: DialogueTexts.tscn
+msgid "Nehmt das!"
+msgstr "Take this!"
+
+#: DialogueTexts.tscn
+msgid "Sag ich doch. Einfach nicht mehr wie früher, gleich aufgeben. Wissen einfach nicht mehr was richtige Arbeit ist!"
+msgstr "What did I tell you? It's just not like it used to be back in the days, they throw in the towel right away. They don't know honest work anymore!"
+
+#: DialogueTexts.tscn
+msgid "Oha! Jetzt aber! Dann muss ich wohl härtere Geschütze auffahren!"
+msgstr "Oho! Now we're talking! Then I'll bring bigger guns, too!"
+
+#: DialogueTexts.tscn
+msgid "Okay, ihr wollt Ernst? Ihr kriegt Ernst! Ich zeig euch was diese alten Knochen noch können!"
+msgstr "Okay, you want to get down to business? Let's do business! I'll show you what damage these old bones can do!"
+
+#: DialogueTexts.tscn
+msgid "Frosti, Bibber, Eis und Hagel! Los geht's meine Lieben!"
+msgstr "Frosty, Shivers, Ice and Hail! Let's go, my lovelies!"
