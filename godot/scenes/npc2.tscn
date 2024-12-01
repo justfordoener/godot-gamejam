@@ -1058,7 +1058,7 @@ libraries = {
 movie_quit_on_finish = true
 
 [node name="barbara" type="ProgressBar" parent="."]
-offset_left = 20.0
-offset_top = 80.0
-offset_right = 130.0
-offset_bottom = 107.0
+offset_left = 450.0
+offset_top = 20.0
+offset_right = 560.0
+offset_bottom = 47.0

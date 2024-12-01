@@ -4,7 +4,7 @@ extends Node
 
 var MOVEMENT_SPEED := 1
 var NPC_COUNT := 3
-var BOCK_COST := -3
+var BOCK_COST := -5
 var movement_speed_0 = MOVEMENT_SPEED
 var movement_speed_1 = MOVEMENT_SPEED
 var movement_speed_2 = MOVEMENT_SPEED
