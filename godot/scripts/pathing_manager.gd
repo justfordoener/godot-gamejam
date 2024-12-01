@@ -29,19 +29,24 @@ var is_moving = [is_moving_0, is_moving_1, is_moving_2]
 @onready var anim_0_idle : AnimationPlayer	 = npc_0.get_child(0).get_child(1)
 @onready var anim_0_walk : AnimationPlayer	 = npc_0.get_child(0).get_child(2)
 @onready var anim_0_shovel : AnimationPlayer = npc_0.get_child(0).get_child(3)
+@onready var anim_0_run : AnimationPlayer = npc_0.get_child(0).get_child(4)
 @onready var anim_1_idle : AnimationPlayer	 = npc_1.get_child(0).get_child(1)
 @onready var anim_1_walk : AnimationPlayer	 = npc_1.get_child(0).get_child(2)
 @onready var anim_1_shovel : AnimationPlayer = npc_1.get_child(0).get_child(3)
+@onready var anim_1_run : AnimationPlayer = npc_1.get_child(0).get_child(4)
 @onready var anim_2_idle : AnimationPlayer	 = npc_2.get_child(0).get_child(1)
 @onready var anim_2_walk : AnimationPlayer	 = npc_2.get_child(0).get_child(2)
 @onready var anim_2_shovel : AnimationPlayer = npc_2.get_child(0).get_child(3)
+@onready var anim_2_run : AnimationPlayer = npc_2.get_child(0).get_child(4)
 @onready var idle_anims = [anim_0_idle, anim_1_idle, anim_2_idle]
 @onready var walk_anims = [anim_0_walk, anim_1_walk, anim_2_walk]
 @onready var shovel_anims = [anim_0_shovel, anim_1_shovel, anim_2_shovel]
+@onready var run_anims = [anim_0_run, anim_1_run, anim_2_run]
 var bock_bar0 : ProgressBar
 var bock_bar1 : ProgressBar
 var bock_bar2 : ProgressBar
 var bock_bar = [bock_bar0, bock_bar1, bock_bar2]
+var npc_rotation_base : Basis = Basis(Vector3(0,1,0), PI)
 
 # snowmen
 var snowmen_activated = false
@@ -60,6 +65,9 @@ var snowmen_activated = false
 @onready var path_follow_snowman_0 : PathFollow3D = $"../path_snowman_0/PathFollow3D"
 @onready var path_follow_snowman_1 : PathFollow3D = $"../path_snowman_1/PathFollow3D"
 @onready var path_follow_snowman_2 : PathFollow3D = $"../path_snowman_2/PathFollow3D"
+
+#audio
+@onready var music_player : AudioStreamPlayer = $"../AudioStreamPlayer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -112,8 +120,8 @@ func _move_snowmen(delta: float):
 		snowman_0.show()
 		if !anim_snowman_0_start.is_playing():
 			anim_snowman_0_start.play("Ready")
-		if !anim_snowman_1_start.is_playing():
-			anim_snowman_1_start.play("Ready_Baseballbet")
+		if !anim_snowman_1_chase.is_playing():
+			anim_snowman_1_chase.play("Angry_chase_baseballbat")
 		if !anim_snowman_2_chase.is_playing():
 			anim_snowman_2_chase.play("Angry_chase_morningstar")
 		path_follow_snowman_0.progress += delta * MOVEMENT_SPEED * 1.5
@@ -164,10 +172,11 @@ func _check_collision(num: int) -> void:
 func _update_bock_bar(delta: float, num: int) -> void:
 	if bock_bar[num].value == 0:
 		# walk home
+		npcs[num].transform.basis = Basis()
 		if shovel_anims[num].is_playing():
 			shovel_anims[num].stop()
-		if !walk_anims[num].is_playing():
-			walk_anims[num].play("Walkcycle")
+		if !run_anims[num].is_playing():
+			run_anims[num].play("Crappy_Run")
 		movement_speed[num] = -1.5 * MOVEMENT_SPEED
 		if (path_follow[num].progress == 0.0) and is_moving[num]:
 			if walk_anims[num].is_playing():
@@ -178,6 +187,7 @@ func _update_bock_bar(delta: float, num: int) -> void:
 			is_moving[num] = false
 			await get_tree().create_timer(5.0).timeout
 			path_follow[num].progress = 0.1
+			npcs[num].transform.basis = npc_rotation_base
 			bock_bar[num].value = 100
 			is_moving[num] = true	
 			movement_speed[num] = MOVEMENT_SPEED
