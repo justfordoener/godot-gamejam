@@ -7,7 +7,7 @@ extends Node3D
 @onready var raycast : RayCast3D = $RayCast3D
 @onready var grid_map : GridMap = $GridMap
 
-var stone = preload("res://assets/stone.tscn")
+var stone = preload("res://scenes/stone.tscn")
 
 var new_tile_id = 0
 
