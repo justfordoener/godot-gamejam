@@ -1,6 +1,7 @@
 extends Node
 
 @onready var grid_map : GridMap = $"../GridMap"
+@onready var parent_node = $".."
 
 var MOVEMENT_SPEED := 1
 var NPC_COUNT := 3
@@ -117,6 +118,7 @@ func _process(delta: float) -> void:
 
 func _move_snowmen(delta: float):
 	if (snowmen_activated):
+		parent_node.ability_slider.material.set_shader_parameter("slider", 0.0)
 		snowman_0.show()
 		if !anim_snowman_0_start.is_playing():
 			anim_snowman_0_start.play("Ready")
@@ -135,7 +137,7 @@ func _move_snowmen(delta: float):
 		if (path_follow_snowman_0.progress_ratio == 1
 		 && path_follow_snowman_1.progress_ratio == 1
 		 && path_follow_snowman_2.progress_ratio == 1):
-			await get_tree().create_timer(3).timeout
+			await get_tree().create_timer(2).timeout
 			snowmen_activated = false
 			path_follow_snowman_0.progress = 0
 			snowman_0.hide()
@@ -145,6 +147,7 @@ func _move_snowmen(delta: float):
 			await get_tree().create_timer(0.07).timeout
 			path_follow_snowman_2.progress = 0
 			snowman_2.hide()
+			parent_node.add_val = 0
 
 func _check_collision(num: int) -> void:
 	# npc shovel

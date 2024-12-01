@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/dialogue/canvasUI_script.gd" id="1_bsrr6"]
 [ext_resource type="Shader" path="res://scenes/shaders/cutInEffect.gdshader" id="1_euyj7"]
 [ext_resource type="Texture2D" uid="uid://3sdx1kx5yrql" path="res://assets/sprites/Frosty.png" id="4_gs34h"]
-[ext_resource type="PackedScene" uid="uid://bge5pfu145lxq" path="res://assets/UI/DialogueWindow.tscn" id="5_74gge"]
+[ext_resource type="PackedScene" uid="uid://50j4c88qjw07" path="res://assets/UI/DialogueWindow.tscn" id="5_74gge"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h5qmd"]
 shader = ExtResource("1_1d281")

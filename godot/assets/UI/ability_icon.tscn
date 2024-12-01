@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4ruj48gim2lc"]
+
+[ext_resource type="Texture2D" uid="uid://d2sn1c2e28dxg" path="res://assets/snow_icon.png" id="1_7vv78"]
+[ext_resource type="Shader" path="res://assets/UI/ability_icon.gdshader" id="4_tll6p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdxkh"]
+shader = ExtResource("4_tll6p")
+shader_parameter/slider = 1.0
+
+[node name="AbilityIcon" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_wdxkh")
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("1_7vv78")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 41.0
+offset_top = -63.0
+offset_right = 468.0
+offset_bottom = 323.0
+theme_override_font_sizes/normal_font_size = 200
+text = "[Q]"
