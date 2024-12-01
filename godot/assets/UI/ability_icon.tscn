@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4ruj48gim2lc"]
 
-[ext_resource type="Texture2D" uid="uid://d2sn1c2e28dxg" path="res://assets/snow_icon.png" id="1_7vv78"]
+[ext_resource type="Texture2D" uid="uid://bdkhoh2uqb5f" path="res://assets/snowman_icon.png" id="2_16foc"]
 [ext_resource type="Shader" path="res://assets/UI/ability_icon.gdshader" id="4_tll6p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wdxkh"]
@@ -13,7 +13,7 @@ shader_parameter/slider = 1.0
 material = SubResource("ShaderMaterial_wdxkh")
 offset_right = 1024.0
 offset_bottom = 1024.0
-texture = ExtResource("1_7vv78")
+texture = ExtResource("2_16foc")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 41.0
