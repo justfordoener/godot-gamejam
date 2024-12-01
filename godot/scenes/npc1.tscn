@@ -1146,7 +1146,7 @@ mesh = SubResource("ArrayMesh_i188w")
 skin = SubResource("Skin_r75m4")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="dubbel_Idle/Skeleton3D"]
-transform = Transform3D(84.4954, 52.2007, 11.6456, 40.7005, -48.6307, -77.3209, -34.6987, 70.0724, -62.3367, -0.187274, 0.916846, 0.0889069)
+transform = Transform3D(84.4954, 52.2006, 11.6458, 40.7007, -48.6307, -77.3208, -34.6985, 70.0724, -62.3367, -0.187274, 0.916846, 0.0889072)
 bone_name = "RightHand"
 bone_idx = 27
 
