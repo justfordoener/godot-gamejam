@@ -96,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288349, 0.977878, 0.877583)
 curve = SubResource("Curve3D_khyc2")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="path_npc_0"]
-transform = Transform3D(-0.0175065, 0.0223323, 0.999585, -1.86263e-09, 0.999749, -0.0223355, -0.999836, -0.000391026, -0.0175021, 2.69594, -0.486379, 0.626268)
+transform = Transform3D(-0.0175065, 0.0223323, 0.999586, -1.86263e-09, 0.999749, -0.0223355, -0.999836, -0.000391026, -0.0175021, 2.69594, -0.486379, 0.626268)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="path_npc_0/PathFollow3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -142,7 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.578674, 0)
 curve = SubResource("Curve3D_5rkdf")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="path_npc_2"]
-transform = Transform3D(-0.169423, -0.0731153, -0.982811, 0, 0.997238, -0.0741871, 0.985528, -0.0125693, -0.168956, 4.35423, 2.07475, 0.444046)
+transform = Transform3D(-0.169423, -0.0731153, -0.98281, 0, 0.997237, -0.074187, 0.985528, -0.0125693, -0.168956, 4.35423, 2.07475, 0.444046)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="path_npc_2/PathFollow3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -191,7 +191,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490936, 0)
 curve = SubResource("Curve3D_ucp1t")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="path_snowman_1"]
-transform = Transform3D(-0.043438, 0, 0.999055, 0, 1, 0, -0.999055, 0, -0.043438, 6.43883, 3.03984e-05, 4.48467)
+transform = Transform3D(-0.043438, 0, 0.999054, 0, 1, 0, -0.999054, 0, -0.043438, 6.43883, 3.03984e-05, 4.48467)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="path_snowman_1/PathFollow3D"]
 

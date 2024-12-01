@@ -391,7 +391,7 @@ bones/5/parent = 2
 bones/5/rest = Transform3D(-0.320704, -0.910666, -0.260452, -0.943744, 0.330622, 0.00605243, 0.0805995, 0.247741, -0.965468, -0.136085, -0.214823, -0.0207928)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.136085, -0.214823, -0.0207928)
-bones/5/rotation = Quaternion(-0.793872, 0.0814881, 0.449639, 0.401189)
+bones/5/rotation = Quaternion(-0.793872, 0.0814881, 0.449639, 0.401188)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "right_arm2"
 bones/6/parent = 5
@@ -412,7 +412,7 @@ bones/8/parent = 2
 bones/8/rest = Transform3D(0.320699, 0.910662, 0.260475, -0.943746, 0.330616, 0.00605913, -0.0805993, -0.247765, 0.965462, -0.13608, 0.214823, -0.0207928)
 bones/8/enabled = true
 bones/8/position = Vector3(-0.13608, 0.214823, -0.0207928)
-bones/8/rotation = Quaternion(-0.228758, 0.0540598, -0.573927, 0.784445)
+bones/8/rotation = Quaternion(-0.228758, 0.0540599, -0.573927, 0.784445)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "left_arm2"
 bones/9/parent = 8
@@ -458,7 +458,7 @@ skin = SubResource("Skin_shuuj")
 transform = Transform3D(-0.874801, 0.484482, -1.49012e-08, 0.288826, 0.521516, -0.802871, -0.388976, -0.702352, -0.596153, 0.71581, 0.885096, 0.102965)
 
 [node name="ctrl_left_arm3" type="Node3D" parent="Snowman_Ready/offset_left_arm3"]
-transform = Transform3D(0.959794, 0.280706, -5.82077e-11, -0.280704, 0.959787, -0.0038565, -0.00108254, 0.00370144, 0.999993, 0.441548, -0.0534222, -0.225161)
+transform = Transform3D(1, 0, 0, 0, 0.395062, 0.918655, 0, -0.918655, 0.395062, 0.441548, -0.0534222, -0.225161)
 
 [node name="geo_bazooka" type="MeshInstance3D" parent="Snowman_Ready/offset_left_arm3/ctrl_left_arm3"]
 transform = Transform3D(-0.874801, 0.388976, 0.288826, 0.484482, 0.702352, 0.521516, 1.49012e-08, 0.596153, -0.802871, -1.07704e-08, 5.96487e-09, 1.1272e-08)

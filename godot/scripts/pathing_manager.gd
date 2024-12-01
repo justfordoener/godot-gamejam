@@ -101,14 +101,22 @@ func _process(delta: float) -> void:
 	_update_bock_bar(delta, 2)
 	
 	_move_snowmen(delta)
-	
+
 func _move_snowmen(delta: float):
 	if (snowmen_activated):
 		snowman_0.show()
+		if !anim_snowman_0_start.is_playing():
+			anim_snowman_0_start.play("Ready")
+		if !anim_snowman_1_start.is_playing():
+			anim_snowman_1_start.play("Ready_Baseballbet")
+		if !anim_snowman_2_chase.is_playing():
+			anim_snowman_2_chase.play("Angry_chase_morningstar")
 		path_follow_snowman_0.progress += delta * MOVEMENT_SPEED * 1.5
 		snowman_1.show()
+		anim_snowman_1_chase.play()
 		path_follow_snowman_1.progress += delta * MOVEMENT_SPEED * 1.5
 		snowman_2.show()
+		anim_snowman_2_chase.play()
 		path_follow_snowman_2.progress += delta * MOVEMENT_SPEED * 1.5
 		
 		if (path_follow_snowman_0.progress_ratio == 1
