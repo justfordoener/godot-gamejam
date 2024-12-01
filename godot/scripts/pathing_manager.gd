@@ -68,7 +68,10 @@ var snowmen_activated = false
 @onready var path_follow_snowman_2 : PathFollow3D = $"../path_snowman_2/PathFollow3D"
 
 #audio
-@onready var music_player : AudioStreamPlayer = $"../AudioStreamPlayer"
+@onready var background_music : AudioStreamPlayer = $"../Background"
+@onready var ability_snow_music : AudioStreamPlayer = $"../AbilitySnow"
+@onready var ability_snowman_music : AudioStreamPlayer = $"../AbilitySnowman"
+@onready var hit_music : AudioStreamPlayer = $"../Hit"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -95,27 +98,32 @@ func _ready() -> void:
 	anim_snowman_2_chase = snowman_2.get_child(0).get_child(3)
 
 func _process(delta: float) -> void:
+	#TODO edit
+	game_started = true
+	if !background_music.playing:
+		background_music.play(0)
+	if game_started:
+		# npc #0
+		_move_npc(delta, 0)
+		_check_collision(0) 
+		_update_bock_bar(delta, 0)
+		
+		# npc #1
+		_move_npc(delta, 1)
+		_check_collision(1) 
+		_update_bock_bar(delta, 1)
+		
+		# npc #2
+		_move_npc(delta, 2)
+		_check_collision(2) 
+		_update_bock_bar(delta, 2)
+		
+		_move_snowmen(delta)
+		
+func set_snowmen(b : bool):
+	snowmen_activated = b
+	print("activated")
 	
-	if !game_started:
-		pass
-	
-	# npc #0
-	_move_npc(delta, 0)
-	_check_collision(0) 
-	_update_bock_bar(delta, 0)
-	
-	# npc #1
-	_move_npc(delta, 1)
-	_check_collision(1) 
-	_update_bock_bar(delta, 1)
-	
-	# npc #2
-	_move_npc(delta, 2)
-	_check_collision(2) 
-	_update_bock_bar(delta, 2)
-	
-	_move_snowmen(delta)
-
 func _move_snowmen(delta: float):
 	if (snowmen_activated):
 		parent_node.ability_slider.material.set_shader_parameter("slider", 0.0)
@@ -165,10 +173,16 @@ func _check_collision(num: int) -> void:
 	# snowman trigger
 	if raycast_snowman_0.is_colliding() and snowman_0.is_visible_in_tree():
 		bock_bar[0].value = 0
+		if !ability_snowman_music.playing:
+			ability_snowman_music.play(0)
 	if raycast_snowman_1.is_colliding() and snowman_1.is_visible_in_tree():
 		bock_bar[1].value = 0
+		if !ability_snowman_music.playing:
+			ability_snowman_music.play(0)
 	if raycast_snowman_2.is_colliding() and snowman_2.is_visible_in_tree():
 		bock_bar[2].value = 0
+		if !ability_snowman_music.playing:
+			ability_snowman_music.play(0)
 	
 			
 

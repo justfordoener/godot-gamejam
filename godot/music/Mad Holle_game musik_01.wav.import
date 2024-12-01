@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://derengl0d0o63"
+path="res://.godot/imported/Mad Holle_game musik_01.wav-07696e187843fbfbb7064039c1608fdc.sample"
+
+[deps]
+
+source_file="res://music/Mad Holle_game musik_01.wav"
+dest_files=["res://.godot/imported/Mad Holle_game musik_01.wav-07696e187843fbfbb7064039c1608fdc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

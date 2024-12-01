@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://xnua2qbaqep1"]
+[gd_scene load_steps=28 format=3 uid="uid://xnua2qbaqep1"]
 
 [ext_resource type="Script" path="res://scripts/main_ingame_scene.gd" id="1_c2eda"]
 [ext_resource type="PackedScene" uid="uid://bcig1vpv5f4tp" path="res://scenes/dialogue/canvasUI.tscn" id="2_kgc0a"]
@@ -13,9 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://dgslnwfnfs40m" path="res://scenes/snowman_bazooka.tscn" id="8_3yub1"]
 [ext_resource type="PackedScene" uid="uid://buihm75eyst5r" path="res://scenes/snowman_bat.tscn" id="9_px7yu"]
 [ext_resource type="PackedScene" uid="uid://drj1mbchaoppv" path="res://scenes/snowman_maze.tscn" id="10_pkafi"]
-[ext_resource type="AudioStream" uid="uid://c4qgb0jlr2eet" path="res://music/march.mp3" id="14_0kyx0"]
+[ext_resource type="AudioStream" uid="uid://derengl0d0o63" path="res://music/Mad Holle_game musik_01.wav" id="14_qsnbf"]
 [ext_resource type="PackedScene" uid="uid://b4ruj48gim2lc" path="res://assets/UI/ability_icon.tscn" id="15_8ipm7"]
 [ext_resource type="PackedScene" uid="uid://w5siir4y8785" path="res://assets/UI/ability_icon_click.tscn" id="15_mio8d"]
+[ext_resource type="AudioStream" uid="uid://c3stusglec5ak" path="res://music/Eiszapfen fällt.wav" id="17_v8cej"]
+[ext_resource type="AudioStream" uid="uid://b2ouptdclncho" path="res://music/Eiszapfen trifft jemanden.wav" id="18_c1ccf"]
+[ext_resource type="AudioStream" uid="uid://cq02edx18mpq7" path="res://music/Dulli rutscht aus.wav" id="18_ent6a"]
 
 [sub_resource type="Curve3D" id="Curve3D_khyc2"]
 _data = {
@@ -148,7 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.578674, 0)
 curve = SubResource("Curve3D_5rkdf")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="path_npc_2"]
-transform = Transform3D(-0.169423, -0.0731151, -0.982808, 0, 0.997234, -0.0741869, 0.985528, -0.0125693, -0.168956, 4.35423, 2.07475, 0.444046)
+transform = Transform3D(-0.169423, -0.073115, -0.982808, 0, 0.997234, -0.0741869, 0.985528, -0.0125693, -0.168956, 4.35423, 2.07475, 0.444046)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="path_npc_2/PathFollow3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -232,8 +235,8 @@ collision_mask = 8
 
 [node name="Snowman" parent="path_snowman_2/PathFollow3D/MeshInstance3D/StaticBody3D" instance=ExtResource("10_pkafi")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_0kyx0")
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_qsnbf")
 
 [node name="AbilityIcon_Click" parent="." instance=ExtResource("15_mio8d")]
 position = Vector2(480, 225)
@@ -242,3 +245,14 @@ scale = Vector2(0.08, 0.08)
 [node name="AbilityIcon" parent="." instance=ExtResource("15_8ipm7")]
 position = Vector2(10, 225)
 scale = Vector2(0.08, 0.08)
+
+[node name="KeinBockMehr" type="AudioStreamPlayer" parent="."]
+
+[node name="AbilitySnow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_v8cej")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_c1ccf")
+
+[node name="AbilitySnowman" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ent6a")

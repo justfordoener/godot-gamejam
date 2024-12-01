@@ -40,7 +40,7 @@ func _input(event) -> void:
 		
 	if event.is_action_pressed("use_ability_1") and not pause_overlay.visible:
 		if ability_slider.material.get_shader_parameter("slider") == 1.0:
-			pathing_manager.snowmen_activated = true
+			pathing_manager.set_snowmen(true)
 		
 	if event.is_action_pressed("use_ability_2") and not pause_overlay.visible:
 		dialogue_ui.UpdateDialogueWindow(0)
