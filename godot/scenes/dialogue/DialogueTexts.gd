@@ -30,15 +30,19 @@ var INTRO_TEXT_13 = tr("INTRO_13")
 
 
 var DialogueOptions = { 
-						0:["", INTRO_TEXT_01, -1],
-						1:["Karen Holle", INTRO_TEXT_02, 0],
-						2:["Karen Holle", INTRO_TEXT_03, 0],
-						3:["Karen Holle", INTRO_TEXT_04, 0],
-						4:["Karen Holle", INTRO_TEXT_05, 0],
-						5:["Karen Holle", INTRO_TEXT_06, 0],
-						6:["Karen Holle", INTRO_TEXT_07, 0],
-						7:["Karen Holle", INTRO_TEXT_08, 0],
-						8:["Karen Holle", INTRO_TEXT_09, 0],
+						0:["", INTRO_TEXT_01, -1, -1],
+						1:["Karen Holle", INTRO_TEXT_02, 0, -1],
+						2:["Karen Holle", INTRO_TEXT_03, 0, -1],
+						3:["Karen Holle", INTRO_TEXT_04, 0, 1],
+						4:["Karen Holle", INTRO_TEXT_05, 0, -1],
+						5:["Dulli Dave", INTRO_TEXT_06, 2, 0],
+						6:["Karen Holle", INTRO_TEXT_07, 0, 1],
+						7:["Snow Team Six", INTRO_TEXT_08, 1, 1],
+						8:["Karen Holle", INTRO_TEXT_09, 0, -1],
+						9:["Karen Holle", INTRO_TEXT_10, 0, -1],
+						10:["Karen Holle", INTRO_TEXT_11, 0, -1],
+						11:["Karen Holle", INTRO_TEXT_12, 0, -1],
+						12:["Karen Holle", INTRO_TEXT_13, 0, -1]
 }
 
 # Called when the node enters the scene tree for the first time.

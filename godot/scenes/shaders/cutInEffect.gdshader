@@ -2,7 +2,7 @@ shader_type canvas_item;
 render_mode blend_mix;
 
 uniform float DEBUGID: hint_range(0, 9) = 1.;
-uniform float CutInValue: hint_range(0.0, 1.0) = 1.0;
+uniform float CutInValue: hint_range(0.0, 1.0) = 0.0;
 uniform float CutOutValue: hint_range(0.0, 1.0) = 0.0;
 uniform float OffsetValue: hint_range(0.0, 0.2) = 0.1;
 uniform float UVOffsetValue: hint_range(0.0, 1.0) = 0.1;

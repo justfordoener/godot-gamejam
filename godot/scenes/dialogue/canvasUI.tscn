@@ -1,10 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcig1vpv5f4tp"]
+[gd_scene load_steps=15 format=3 uid="uid://bcig1vpv5f4tp"]
 
 [ext_resource type="Shader" uid="uid://c41oysfwhaomh" path="res://scenes/shaders/DebugGrid.tres" id="1_1d281"]
 [ext_resource type="Script" path="res://scenes/dialogue/canvasUI_script.gd" id="1_bsrr6"]
 [ext_resource type="Shader" path="res://scenes/shaders/cutInEffect.gdshader" id="1_euyj7"]
 [ext_resource type="Texture2D" uid="uid://3sdx1kx5yrql" path="res://assets/sprites/Frosty.png" id="4_gs34h"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://50j4c88qjw07" path="res://assets/UI/DialogueWindow.tscn" id="5_74gge"]
+=======
+[ext_resource type="PackedScene" uid="uid://bge5pfu145lxq" path="res://assets/UI/DialogueWindow.tscn" id="5_74gge"]
+[ext_resource type="Texture2D" uid="uid://cgkhqvq6x2tq1" path="res://assets/sprites/emotion_angry.png" id="6_bdllr"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h5qmd"]
 shader = ExtResource("1_1d281")
@@ -36,6 +41,50 @@ shader_parameter/TealBackground = Vector4(0, 0.4, 0.5, 0.7)
 shader_parameter/OutlineColor = Vector3(0, 0, 1)
 shader_parameter/BackgroundColor = Vector4(0, 0, 0.7, 0.7)
 shader_parameter/polygon = PackedVector2Array(0.005, 0.475, 1.315, 0.05, 0.73, 0.45, 1.22, 0.71)
+
+[sub_resource type="Animation" id="Animation_eueg6"]
+resource_name = "EmotionAction"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../EmotionSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.867378, 0.874766),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EmotionSprite:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.121512, 0.221685, 0.402303, 0.658281, 0.811611, 0.873289),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.004, 0.004), Vector2(0.294, 0.294), Vector2(0.159, 0.159), Vector2(0.214, 0.214), Vector2(0.159, 0.159), Vector2(0.214, 0.214), Vector2(0.019, 0.019)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../EmotionSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.146287, 0.294051, 0.772809, 0.873289),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.492183, 0.729548, -0.237365, 0.469494, 0.204204]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wqabg"]
+_data = {
+"EmotionAction": SubResource("Animation_eueg6")
+}
 
 [sub_resource type="Animation" id="Animation_caopn"]
 resource_name = "CutIn"
@@ -119,6 +168,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../EmotionSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../EmotionSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.004, 0.004)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../EmotionSprite:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.476931]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17wnc"]
 _data = {
@@ -151,10 +236,26 @@ scale = Vector2(0.3, 0.298)
 texture = ExtResource("4_gs34h")
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="EmotionAnimations" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PortraitAnimations")
+libraries = {
+"": SubResource("AnimationLibrary_wqabg")
+}
+
+[node name="PortraitAnimations" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Miku")
 libraries = {
 "": SubResource("AnimationLibrary_17wnc")
 }
 
 [node name="DialogueWindow" parent="." instance=ExtResource("5_74gge")]
+
+[node name="EmotionSprite" type="Sprite2D" parent="."]
+position = Vector2(343, 108)
+rotation = 0.476931
+scale = Vector2(0.004, 0.004)
+texture = ExtResource("6_bdllr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="."]

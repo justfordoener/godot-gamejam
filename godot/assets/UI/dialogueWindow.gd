@@ -17,7 +17,7 @@ func UpdateDialogueWindow(DialogueID):
 	
 	if NameText.length() == 0:
 		name_box.visible = false
-		print("INVISIBLE")
+		#print("INVISIBLE")
 	else:
 		name_box.visible = true
 		name_text.clear()
