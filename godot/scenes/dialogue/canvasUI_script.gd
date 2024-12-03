@@ -4,10 +4,11 @@ extends CanvasLayer
 @onready var miku: Sprite2D = $Miku
 @onready var emotion_sprite: Sprite2D = $EmotionSprite
 @onready var emotion_animations: AnimationPlayer = $EmotionAnimations
-@onready var portrait_animations: AnimationPlayer = $PortraitAnimations
+@onready var portrait_animations: AnimationPlayer = $PortraitAnimationPlayer
 @onready var AudioPlayer: AudioStreamPlayer = $AudioStreamPlayer
 @onready var IntroPlayer: AudioStreamPlayer = $IntroMusic
 
+var PATHFINDINGMANAGER = PathingManager
 
 const FrauHollePortrait = preload("res://assets/sprites/KarenHolle.png")
 const DulliPortrait = preload("res://assets/sprites/Dulli.png")
@@ -124,6 +125,7 @@ func PlayIntro():
 		IntroPlayer.play(0)
 		CutOutCharacter()
 		RemoveDialogueWindow()
+		PATHFINDINGMANAGER.game_started = true
 		DialogueID += 1
 	
 

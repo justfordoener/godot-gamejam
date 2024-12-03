@@ -15,6 +15,7 @@ var is_moving_1 = true
 var is_moving_2 = true
 var game_started = false
 var is_moving = [is_moving_0, is_moving_1, is_moving_2]
+
 @onready var path_follow_0 : PathFollow3D = $"../path_npc_0/PathFollow3D"
 @onready var path_follow_1 : PathFollow3D = $"../path_npc_1/PathFollow3D"
 @onready var path_follow_2 : PathFollow3D = $"../path_npc_2/PathFollow3D"
@@ -23,6 +24,7 @@ var is_moving = [is_moving_0, is_moving_1, is_moving_2]
 @onready var raycast_1 : RayCast3D = $"../path_npc_1/PathFollow3D/MeshInstance3D/StaticBody3D/RayCast3D"
 @onready var raycast_2 : RayCast3D = $"../path_npc_2/PathFollow3D/MeshInstance3D/StaticBody3D/RayCast3D"
 @onready var raycast = [raycast_0, raycast_1, raycast_2]
+
 @onready var npc_0 : Node3D = $"../path_npc_0/PathFollow3D/MeshInstance3D/StaticBody3D/Npc"
 @onready var npc_1 : Node3D = $"../path_npc_1/PathFollow3D/MeshInstance3D/StaticBody3D/Npc"
 @onready var npc_2 : Node3D = $"../path_npc_2/PathFollow3D/MeshInstance3D/StaticBody3D/Npc"
@@ -99,7 +101,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#TODO edit
-	game_started = true
+	game_started = false
 	if !background_music.playing:
 		background_music.play(0)
 	if game_started:

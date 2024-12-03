@@ -43,7 +43,7 @@ func _input(event) -> void:
 			pathing_manager.set_snowmen(true)
 		
 	if event.is_action_pressed("use_ability_2") and not pause_overlay.visible:
-		dialogue_ui.UpdateDialogueWindow(0)
+		dialogue_ui.PlayIntro()
 		
 		
 	if event.is_action_pressed("confirm_ability_placement") and not pause_overlay.visible:

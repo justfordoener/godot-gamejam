@@ -16,12 +16,12 @@ void fragment() {
 	vec2 CustomUV = ceil(sin(vec2(UV.r * UVRatio, UV.g) * UVScale));
 	vec4 GridColorsX = mix(vec4(0.,0.,0.,1.), vec4(1.,1.,1.,1.), CustomUV.r);
 	vec4 GridColorsY = mix(vec4(0.,0.,0.,1.), vec4(1.,1.,1.,1.), CustomUV.g);
-	
-	
-	
+
+
+
 	//finalCol.r = CustomUV.r - CustomUV.g;
 	finalCol.rg = CustomUV;
-	
+
 	COLOR = finalCol;
 }
 "
