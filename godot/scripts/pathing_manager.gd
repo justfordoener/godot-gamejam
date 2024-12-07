@@ -102,8 +102,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !game_started:
 		game_started = EVENTBUS.game_started
-	if !background_music.playing:
-		background_music.play(0)
 	if game_started:
 		# npc #0
 		_move_npc(delta, 0)

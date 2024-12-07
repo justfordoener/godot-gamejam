@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=9 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" path="res://scripts/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://xnua2qbaqep1" path="res://scenes/main_ingame_scene.tscn" id="2_34rfh"]
 [ext_resource type="PackedScene" uid="uid://g4qhvbvdm62w" path="res://scenes/game_settings_scene.tscn" id="3_dgs4d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="3_kf1us"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
+[ext_resource type="Texture2D" uid="uid://3iii7hirlw5h" path="res://assets/KarenHolle_Main.png" id="4_nflj8"]
 [ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="6_drnm6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
@@ -18,18 +19,30 @@ settings_scene = ExtResource("3_dgs4d")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="UI"]
+offset_left = -44.815
+offset_top = -91.985
+offset_right = 2003.2
+offset_bottom = 1956.02
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("4_nflj8")
+
 [node name="CenterContainer" type="CenterContainer" parent="UI"]
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -139.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="GameLogo" parent="UI/CenterContainer/VBoxContainer" instance=ExtResource("4_fnufg")]
+visible = false
 layout_mode = 2
 
 [node name="ContinueButton" type="Button" parent="UI/CenterContainer/VBoxContainer"]
