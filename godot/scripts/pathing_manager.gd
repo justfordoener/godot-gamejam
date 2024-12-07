@@ -2,6 +2,7 @@ extends Node
 
 @onready var grid_map : GridMap = $"../GridMap"
 @onready var parent_node = $".."
+@onready var EVENTBUS = $"../EventBus"
 
 var MOVEMENT_SPEED := 1
 var NPC_COUNT := 3
@@ -24,7 +25,6 @@ var is_moving = [is_moving_0, is_moving_1, is_moving_2]
 @onready var raycast_1 : RayCast3D = $"../path_npc_1/PathFollow3D/MeshInstance3D/StaticBody3D/RayCast3D"
 @onready var raycast_2 : RayCast3D = $"../path_npc_2/PathFollow3D/MeshInstance3D/StaticBody3D/RayCast3D"
 @onready var raycast = [raycast_0, raycast_1, raycast_2]
-
 @onready var npc_0 : Node3D = $"../path_npc_0/PathFollow3D/MeshInstance3D/StaticBody3D/Npc"
 @onready var npc_1 : Node3D = $"../path_npc_1/PathFollow3D/MeshInstance3D/StaticBody3D/Npc"
 @onready var npc_2 : Node3D = $"../path_npc_2/PathFollow3D/MeshInstance3D/StaticBody3D/Npc"
@@ -100,8 +100,8 @@ func _ready() -> void:
 	anim_snowman_2_chase = snowman_2.get_child(0).get_child(3)
 
 func _process(delta: float) -> void:
-	#TODO edit
-	game_started = false
+	if !game_started:
+		game_started = EVENTBUS.game_started
 	if !background_music.playing:
 		background_music.play(0)
 	if game_started:

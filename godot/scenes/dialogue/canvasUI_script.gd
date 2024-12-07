@@ -8,8 +8,6 @@ extends CanvasLayer
 @onready var AudioPlayer: AudioStreamPlayer = $AudioStreamPlayer
 @onready var IntroPlayer: AudioStreamPlayer = $IntroMusic
 
-var PATHFINDINGMANAGER = PathingManager
-
 const FrauHollePortrait = preload("res://assets/sprites/KarenHolle.png")
 const DulliPortrait = preload("res://assets/sprites/Dulli.png")
 const FrostyPortrait = preload("res://assets/sprites/Frosty.png")
@@ -36,6 +34,7 @@ var DialogueID = 0
 var LastDialogueID
 var IsCutIn = false
 var DIALOGUETEXTS = DialogueTexts
+@onready var EVENTBUS = $"../EventBus"
 
 func SetPortrait(DialogueID):
 	var PortraitID = DialogueTexts.DialogueOptions[DialogueID][2]
@@ -125,7 +124,7 @@ func PlayIntro():
 		IntroPlayer.play(0)
 		CutOutCharacter()
 		RemoveDialogueWindow()
-		PATHFINDINGMANAGER.game_started = true
+		EVENTBUS.game_started = true
 		DialogueID += 1
 	
 

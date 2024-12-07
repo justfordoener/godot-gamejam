@@ -500,7 +500,6 @@ shadow_mesh = SubResource("ArrayMesh_nc7pn")
 resource_name = "standardSurface1"
 transparency = 4
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("13_hysfo")
 roughness = 0.5
 emission_enabled = true
